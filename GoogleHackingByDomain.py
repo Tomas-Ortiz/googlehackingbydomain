@@ -242,7 +242,7 @@ def search(domain, option):
         resultsQueries.append(resource.list(
             q=site + ' (Administrator | Administrators | Administrative)', cx=CX).execute())
         resultsQueries.append(resource.list(
-            q=site + ' (Confidencial | Confidential | Sensible)', cx=CX).execute())
+            q=site + ' (Confidencial | Sensible | Confidential | Sensitive)', cx=CX).execute())
         resultsQueries.append(resource.list(
             q=site + ' (Privado | Private)', cx=CX).execute())
         resultsQueries.append(resource.list(
@@ -496,7 +496,7 @@ def showResults(results, format):
             print(Fore.GREEN + "  " + item['link'])
             if ('snippet' in item):
                 print(Fore.YELLOW + Style.BRIGHT + "  " + item['snippet'])
-                print(" ")
+            print(" ")
     print("  =================================================================================================")
 
 

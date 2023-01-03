@@ -36,7 +36,7 @@ For this tool to work you must generate and obtain an API Key for "Custom Search
 5. Create a Programmable Search Engine and get the Search Engine ID (CX) <br/>
           - https://programmablesearchengine.google.com/controlpanel/create 
 
-6. Insert your API key and search engine ID into the variables indicated in the source code of the script (API_KEY and CX) <br/>
+6. Insert your API Key and search engine ID into the variables indicated in the source code of the script (API_KEY and CX) <br/>
 
 7. Finally, you can use the tool <br/>
           - python3 .\GoogleHackingByDomain.py 

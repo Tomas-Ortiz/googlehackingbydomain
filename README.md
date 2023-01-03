@@ -18,7 +18,7 @@
 - The results obtained are saved in a text file, in the same path where the script is located.
 - Google's "Custom Search API" is used. This API is limited to 100 free queries per day.
 - This tool works for Windows and Linux.
-- It is important to clarify that due to the nature of Google searches it is possible to obtain inaccurate, unwanted or false positive results.
+- Due to the nature of Google searches, it is possible to obtain unwanted, repetitive or false positive results.
 
 For this tool to work you must generate and obtain an API Key for "Custom Search API" and create a Programmable Search Engine. The steps are described below.
 

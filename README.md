@@ -39,7 +39,7 @@ For this tool to work you must generate and obtain an API Key for "Custom Search
 6. Insert your API Key and search engine ID into the variables indicated in the source code of the script (API_KEY and CX) <br/>
 
 7. Finally, you can use the tool <br/>
-          - python3 .\GoogleHackingByDomain.py 
+          - python3 GoogleHackingByDomain.py 
 
 8. Additionally, you can use the google console to control enabled APIs, credentials, queries, usage and so on <br/>
           - https://console.cloud.google.com/apis/dashboard

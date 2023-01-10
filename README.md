@@ -17,34 +17,27 @@
 - Queries are executed in Spanish and English.
 - The results obtained are saved in a text file, in the same path where the script is located.
 - Google's "Custom Search API" is used. This API is limited to 100 free queries per day.
-- Due to limited queries, the first page of results is returned. Only for some queries the first two pages of results are returned.
+- For most queries the first page of results is returned. Only for some queries the first two or three pages of results are returned.
 - This tool works for Windows and Linux.
 - Due to the nature of Google searches, it is possible to obtain unwanted, repetitive or false positive results.
 
 For this tool to work you must generate and obtain an API Key for "Custom Search API" and create a Programmable Search Engine. The steps are described below.
 
-1. Download the script on your computer <br/>
-          - git clone https://github.com/Tomas-Ortiz/googlehackingbydomain
+1. Download the script on your computer <br/> - git clone https://github.com/Tomas-Ortiz/googlehackingbydomain
 
-2. Access the downloaded folder <br/>
-          - cd googlehackingbydomain
+2. Access the downloaded folder <br/> - cd googlehackingbydomain
 
-3. Install the required modules <br/>
-          - pip install google-api-python-client colorama
+3. Install the required modules <br/> - pip install google-api-python-client colorama
 
-4. Generate API Key for "Custom Search API" <br/>
-          - https://developers.google.com/custom-search/v1/introduction
+4. Generate API Key for "Custom Search API" <br/> - https://developers.google.com/custom-search/v1/introduction
 
-5. Create a Programmable Search Engine and get the Search Engine ID (CX) <br/>
-          - https://programmablesearchengine.google.com/controlpanel/create 
+5. Create a Programmable Search Engine and get the Search Engine ID (CX) <br/> - https://programmablesearchengine.google.com/controlpanel/create
 
 6. Insert your API Key and search engine ID into the variables indicated in the source code of the script (API_KEY and CX) <br/>
 
-7. Finally, you can use the tool <br/>
-          - python3 GoogleHackingByDomain.py 
+7. Finally, you can use the tool <br/> - python3 GoogleHackingByDomain.py
 
-8. Additionally, you can use the google console to control enabled APIs, credentials, queries, usage and so on <br/>
-          - https://console.cloud.google.com/apis/dashboard
+8. Additionally, you can use the google console to control enabled APIs, credentials, queries, usage and so on <br/> - https://console.cloud.google.com/apis/dashboard
 
 <br/>
 Some screenshots showing how the tool works are attached below. <br/>

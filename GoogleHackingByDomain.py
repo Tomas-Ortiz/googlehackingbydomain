@@ -80,7 +80,7 @@ def search(domain, option):
         print("  Searching for subdomains for the domain " +
               Fore.GREEN + Style.BRIGHT + domain)
 
-        # Execute query for subdomains (page 1 and 2)
+        # Execute queries for subdomains (page 1 and 2)
         resultsQueries.append(resource.list(
             q=site + ' -inurl:www.' + domain, cx=CX).execute())
         resultsQueries.append(resource.list(
@@ -90,7 +90,7 @@ def search(domain, option):
         results = getResults(resultsQueries)
 
         # Show the results and generate the output file
-        if (len(results) > 0):
+        if len(results) > 0:
             showResults(results, format)
             createResultsFile(results, "Subdomains", domain, format)
         else:
@@ -106,7 +106,7 @@ def search(domain, option):
         print("  Searching for directory listing for the domain " +
               Fore.GREEN + Style.BRIGHT + domain)
 
-        # Execute query for directory listing (page 1 and 2)
+        # Execute queries for directory listing (page 1 and 2)
         resultsQueries.append(resource.list(
             q=site + ' intitle:"Index of"', cx=CX).execute())
         resultsQueries.append(resource.list(
@@ -116,7 +116,7 @@ def search(domain, option):
         results = getResults(resultsQueries)
 
         # Show the results and generate the output file
-        if (len(results) > 0):
+        if len(results) > 0:
             showResults(results, format)
             createResultsFile(results, "Directory Listing", domain, format)
         else:
@@ -153,7 +153,7 @@ def search(domain, option):
         results = getResults(resultsQueries)
 
         # Show the results and generate the output file
-        if (len(results) > 0):
+        if len(results) > 0:
             showResults(results, format)
             createResultsFile(
                 results, "Login and registration pages", domain, format)
@@ -206,7 +206,7 @@ def search(domain, option):
         results = getResults(resultsQueries)
 
         # Show the results and generate the output file
-        if (len(results) > 0):
+        if len(results) > 0:
             showResults(results, format)
             createResultsFile(results, "Files", domain, format)
         else:
@@ -258,7 +258,7 @@ def search(domain, option):
         results = getResults(resultsQueries)
 
         # Show the results and generate the output file
-        if (len(results) > 0):
+        if len(results) > 0:
             showResults(results, format)
             createResultsFile(results, "Keywords", domain, format)
         else:
@@ -293,7 +293,7 @@ def search(domain, option):
         results = getResults(resultsQueries)
 
         # Show the results and generate the output file
-        if (len(results) > 0):
+        if len(results) > 0:
             showResults(results, format)
             createResultsFile(results, "Default pages", domain, format)
         else:
@@ -324,7 +324,7 @@ def search(domain, option):
         results = getResults(resultsQueries)
 
         # Show the results and generate the output file
-        if (len(results) > 0):
+        if len(results) > 0:
             showResults(results, format)
             createResultsFile(results, "Software versions", domain, format)
         else:
@@ -358,7 +358,7 @@ def search(domain, option):
         results = getResults(resultsQueries)
 
         # Show the results and generate the output file
-        if (len(results) > 0):
+        if len(results) > 0:
             showResults(results, format)
             createResultsFile(results, "Error messages", domain, format)
         else:
@@ -396,7 +396,7 @@ def search(domain, option):
         results = getResults(resultsQueries)
 
         # Show the results and generate the output file
-        if (len(results) > 0):
+        if len(results) > 0:
             showResults(results, format)
             createResultsFile(results, "Databases", domain, format)
         else:
@@ -413,7 +413,7 @@ def search(domain, option):
         print("  Searching for email addresses and phone numbers for the domain " +
               Fore.GREEN + Style.BRIGHT + domain)
 
-        # Execute queries for email addresses and phone numbers (5)
+        # Execute queries for email addresses and phone numbers (7)
         resultsQueries.append(resource.list(
             q=site + ' (Correo | Email | Mail)', cx=CX).execute())
         resultsQueries.append(resource.list(
@@ -424,12 +424,16 @@ def search(domain, option):
             q=site + ' (+54 | +57 | +56 | +598 | +595 | +51 | +58 | +55 | +593 | +52 | +1)', cx=CX).execute())
         resultsQueries.append(resource.list(
             q=('intext:' + domain + ' -intext:www -intext:https'), cx=CX).execute())
+        resultsQueries.append(resource.list(
+            q=('intext:' + domain + ' -intext:www -intext:https'), cx=CX, start=11).execute())
+        resultsQueries.append(resource.list(
+            q=('intext:' + domain + ' -intext:www -intext:https'), cx=CX, start=21).execute())
 
         # Get the results
         results = getResults(resultsQueries)
 
         # Show the results and generate the output file
-        if (len(results) > 0):
+        if len(results) > 0:
             showResults(results, format)
             createResultsFile(
                 results, "Email addresses and phone numbers", domain, format)
@@ -446,17 +450,19 @@ def search(domain, option):
         print("  Searching for employees for the domain " +
               Fore.GREEN + Style.BRIGHT + domain)
 
-        # Execute queries for employees (page 1 and 2)
+        # Execute queries for employees (page 1, 2 and 3)
         resultsQueries.append(resource.list(
             q='site:linkedin.com/in intitle:' + companyName, cx=CX).execute())
         resultsQueries.append(resource.list(
             q='site:linkedin.com/in intitle:' + companyName, cx=CX, start=11).execute())
+        resultsQueries.append(resource.list(
+            q='site:linkedin.com/in intitle:' + companyName, cx=CX, start=21).execute())
 
         # Get the results
         results = getResults(resultsQueries)
 
         # Show the results and generate the output file
-        if (len(results) > 0):
+        if len(results) > 0:
             showResults(results, format)
             createResultsFile(results, "Employees", domain, format)
         else:
@@ -476,25 +482,25 @@ def showResults(results, format):
     print("  " + Back.BLACK + Fore.GREEN +
           Style.DIM + "Results showed:", len(results))
     print("  =================================================================================================")
-    if (format == 'link'):
+    if format == 'link':
         for item in results:
             print(Fore.GREEN + "  " + item['displayLink'])
-    elif (format == 'description'):
+    elif format == 'description':
         for item in results:
-            if ('snippet' in item):
+            if 'snippet' in item:
                 print(Fore.YELLOW + Style.BRIGHT +
                       "  Description: " + item['snippet'])
                 print(" ")
-    elif (format == 'titleAndLink'):
+    elif format == 'titleAndLink':
         for item in results:
             print(Fore.MAGENTA + Style.BRIGHT + "  " + item['title'])
             print(Fore.GREEN + "  " + item['link'])
             print(" ")
-    elif (format == 'all'):
+    elif format == 'all':
         for item in results:
             print(Fore.MAGENTA + Style.BRIGHT + "  " + item['title'])
             print(Fore.GREEN + "  " + item['link'])
-            if ('snippet' in item):
+            if 'snippet' in item:
                 print(Fore.YELLOW + Style.BRIGHT + "  " + item['snippet'])
             print(" ")
     print("  =================================================================================================")
@@ -503,7 +509,7 @@ def showResults(results, format):
 def getResults(resultsQueries):
     results = []
     for resultQuery in resultsQueries:
-        if (int(resultQuery['searchInformation']['totalResults']) > 0):
+        if int(resultQuery['searchInformation']['totalResults']) > 0:
             results += resultQuery['items']
     return results
 
@@ -519,31 +525,31 @@ def getCompanyName(domain):
 
 
 def createResultsFile(results, title, domain, format):
-    with open(title + ' - ' + domain + ' - GoogleHackingByDomain.txt', 'w') as f:
+    with open(title + ' - ' + domain + ' - GoogleHackingByDomain.txt', 'w',  encoding="utf-8") as f:
         f.write('GoogleHackingByDomain: ' + title + ' - ' + domain + '\n')
         f.write('================================================================================================= \n \n')
-        if (format == 'link'):
+        if format == 'link':
             for item in results:
                 f.write(item['displayLink'])
                 f.write('\n')
-        elif (format == 'description'):
+        elif format == 'description':
             for item in results:
-                if ('snippet' in item):
+                if 'snippet' in item:
                     f.write("Description: " + item['snippet'])
                     f.write('\n \n')
-        elif (format == 'titleAndLink'):
+        elif format == 'titleAndLink':
             for item in results:
                 f.write(item['title'])
                 f.write('\n')
                 f.write(item['link'])
                 f.write('\n \n')
-        elif (format == 'all'):
+        elif format == 'all':
             for item in results:
                 f.write(item['title'])
                 f.write('\n')
                 f.write(item['link'])
                 f.write('\n')
-                if ('snippet' in item):
+                if 'snippet' in item:
                     f.write(item['snippet'])
                 f.write('\n \n')
         f.write('=================================================================================================')

@@ -17,6 +17,7 @@
 - Queries are executed in Spanish and English.
 - The results obtained are saved in a text file, in the same path where the script is located.
 - Google's "Custom Search API" is used. This API is limited to 100 free queries per day.
+- Due to limited queries, the first page of results is returned. Only for some queries the first two pages of results are returned.
 - This tool works for Windows and Linux.
 - Due to the nature of Google searches, it is possible to obtain unwanted, repetitive or false positive results.
 
